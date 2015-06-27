@@ -1,0 +1,2 @@
+This is project is the second project in the Udacity Front-end Web Development 
+Nanodegree program. It is an online resume that uses HTML/CSS, JavaScript, and JQuery
