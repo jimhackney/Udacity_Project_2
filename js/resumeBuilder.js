@@ -541,7 +541,7 @@ var projects = {
 		{
 			"title": "Project 2: Resume",
 			"dates": 2015,
-			"description": "A responsive resume created using HTML/CSS, JavaScript, and JQuery",
+			"description": "An interactive resume created using HTML/CSS, JavaScript, and JQuery",
 			"images": "images/Project2.jpg"
 		}
 	]	
@@ -572,8 +572,6 @@ projects.display = function() {
 }
 
 projects.display();
-
-
 $("#mapDiv").append(googleMap);
 
 
