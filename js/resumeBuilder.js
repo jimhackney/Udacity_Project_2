@@ -1,9 +1,3 @@
-$(document).click(function(loc) {
-    "use strict"; var x = loc.pageX;
-    var y = loc.pageY;
-    logClicks(x, y);
-});
-
 var bio = {
     name: "James R. Hackney",
     role: "Software Developer",
@@ -29,47 +23,29 @@ bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     $("#header").prepend(formattedName);
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    $("#header").append(formattedMobile);
+    $("#header, #footerContacts").append(formattedMobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#header").append(formattedEmail);
+    $("#header, #footerContacts").append(formattedEmail);
     var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.gitHub);
-    $("#header").append(formattedGitHub);
+    $("#header, #footerContacts").append(formattedGitHub);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-    $("#header").append(formattedTwitter);
+    $("#header, #footerContacts").append(formattedTwitter);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#header").append(formattedLocation);
+    $("#header, #footerContacts").append(formattedLocation);
     var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcome);
     var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
     $("#header").append(formattedPic);
+	
     if(bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);		
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[7]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[8]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[9]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[10]);
-        $("#skills").append(formattedSkill);		
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[11]);
-        $("#skills").append(formattedSkill);		
+        $("#header").append(HTMLskillsStart);
+		
+		for (var i in bio.skills) {
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
+			$("#skills").append(formattedSkills);
+		}		
 	}	
-}
+};
 
 bio.display();
 
@@ -202,7 +178,7 @@ var work = {
             description: "• Member of a direct support/limited general support communications-electronics repair facility <br> • Performed and supervised the performance of quarterly, semi-annual, annual maintenance and limited emergency repair on the Defense Information Systems Agency (DISA) microwave network <br> • Performed and supervised the testing, troubleshooting, repair and maintenance of analog and digital circuitry on a variety of communications equipment including personal and military computer systems, facsimiles, teletypewriters, digital and analog microwave radios, multiplexers, digital telecommunications terminals and other miscellaneous equipment <br> • Installed, modified, and repaired personal computer hardware and software and provided technical assistance and training to system users <br> • Conducted fault analysis using standard electronic test equipment <br> • Localized and repaired at system, subsystem, and component level <br> • Supervised junior technicians performing all facets of electronics maintenance and repair and trained new personnel on proper maintenance and safety techniques <br> • Examined plans and specifications to determine work procedures and requisitioned needed parts and equipment <br> • Supervised the generation, updates and completion of work orders <br> • Conducted parts inventory and ordered parts <br> • Researched, analyzed, and compiled historical maintenance data <br> • Laterally promoted from Specialist to Corporal due to leadership position <br> • Received U.S. Army Commendation Medal for work performed." 
         }
     ]
-}
+};
 
 work.display = function() {
     for(var job in work.jobs){
@@ -249,12 +225,12 @@ var education = {
             url: "http://www.vernoncollege.edu/"
         }		
     ]
-}
+};
 
 education.display = function() {
     $("#education").append(HTMLschoolStart);		
 	
-    for(school in education.schools){
+    for(var school in education.schools){
 		
         var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);		
         formattedSchool = formattedSchool.replace('#', education.schools[school].url)	
@@ -473,25 +449,19 @@ var onlineClasses = {
 			url: "https://www.udemy.com/certificate/UC-Q7HBQIY9/"
 		}			
 	]
-}
+};
 	
 onlineClasses.display = function() {
 	$("#onlineClasses").append(HTMLonlineStart);	
 	
-	for(classes in onlineClasses.onlineClasses) {		
+	for(var classes in onlineClasses.onlineClasses) {		
 		
-		var formattedTitle = HTMLonlineTitle.replace("%data%", onlineClasses.onlineClasses[classes].title);
-		/*$(".online-entry:last").append(formattedTitle);*/
-		
-		var formattedSchool = HTMLonlineSchool.replace("%data%", onlineClasses.onlineClasses[classes].school);
-		/*$(".online-entry:last").append(formattedSchool);*/
-		
+		var formattedTitle = HTMLonlineTitle.replace("%data%", onlineClasses.onlineClasses[classes].title);			
+		var formattedSchool = HTMLonlineSchool.replace("%data%", onlineClasses.onlineClasses[classes].school);			
 		var schoolInfo = formattedTitle + formattedSchool
-		$(".online-entry:last").append(schoolInfo);
-		
+		$(".online-entry:last").append(schoolInfo);		
 		var formattedDate = HTMLonlineDates.replace("%data%", onlineClasses.onlineClasses[classes].date);
-		$(".online-entry:last").append(formattedDate); 
-		
+		$(".online-entry:last").append(formattedDate); 		
 		var formattedUrl = HTMLonlineURL.replace("%data%", onlineClasses.onlineClasses[classes].url);
 		$(".online-entry:last").append(formattedUrl); 		
 	}
@@ -514,10 +484,10 @@ var projects = {
 			images: "images/Project2.jpg"
 		}
 	]	
-}
+};
 
 projects.display = function() {	
-	for(project in projects.projects){
+	for(var project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		
 		var formattedTitle = HTMLprojectTitle.replace("%data%", 

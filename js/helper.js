@@ -122,12 +122,14 @@ function initializeMap() {
       title: name
     });
     
+	var contentString = '<div id="content">'+ name + '</div>';
+	
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+        content: contentString
     });
     
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map, marker);
+      infoWindow.open(map, marker);
     });
     
     bounds.extend(new google.maps.LatLng(lat, lon));
