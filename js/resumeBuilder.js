@@ -233,9 +233,9 @@ education.display = function() {
     for(var school in education.schools){
 		
         var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);		
-        formattedSchool = formattedSchool.replace('#', education.schools[school].url)	
+        formattedSchool = formattedSchool.replace('#', education.schools[school].url);	
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-        var schoolInfo = formattedSchool + formattedDegree			
+        var schoolInfo = formattedSchool + formattedDegree;		
         $(".education-entry:last").append(schoolInfo);	
         var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
         $(".education-entry:last").append(formattedLocation);
@@ -458,7 +458,7 @@ onlineClasses.display = function() {
 		
 		var formattedTitle = HTMLonlineTitle.replace("%data%", onlineClasses.onlineClasses[classes].title);			
 		var formattedSchool = HTMLonlineSchool.replace("%data%", onlineClasses.onlineClasses[classes].school);			
-		var schoolInfo = formattedTitle + formattedSchool
+		var schoolInfo = formattedTitle + formattedSchool;
 		$(".online-entry:last").append(schoolInfo);		
 		var formattedDate = HTMLonlineDates.replace("%data%", onlineClasses.onlineClasses[classes].date);
 		$(".online-entry:last").append(formattedDate); 		
@@ -492,7 +492,7 @@ projects.display = function() {
 		
 		var formattedTitle = HTMLprojectTitle.replace("%data%", 
 			projects.projects[project].title);
-		$(".project-entry:last").append(formattedTitle)
+		$(".project-entry:last").append(formattedTitle);
 		
 		var formattedDates = HTMLprojectDates.replace("%data%", 
 			projects.projects[project].dates);
